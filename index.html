@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shwet Shyam Singh Solanki</title>
+
+<meta name="description" content="Personal website of Shwet Shyam Singh Solanki — student, Judo athlete and creative enthusiast from Patna, Bihar, India.">
+<meta name="author" content="Shwet Shyam Singh Solanki">
+<meta name="theme-color" content="#111923">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root{
+  --bg:#111923;
+  --bg2:#17212c;
+  --bg3:#1d2935;
+  --card:rgba(28,40,52,.72);
+  --card2:rgba(35,49,62,.72);
+
+  --white:#f4f1ea;
+  --text:#e8e8e5;
+  --muted:#aeb8c2;
+
+  --gold:#d1ad70;
+  --gold2:#efd39a;
+
+  --blue:#7892aa;
+
+  --border:rgba(239,211,154,.20);
+  --border2:rgba(255,255,255,.10);
+
+  --shadow:0 25px 70px rgba(0,0,0,.28);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"DM Sans",Arial,sans-serif;
+  color:var(--text);
+
+  background:
+    radial-gradient(circle at 8% 10%,rgba(93,123,148,.30),transparent 28%),
+    radial-gradient(circle at 92% 20%,rgba(209,173,112,.14),transparent 25%),
+    linear-gradient(135deg,#101923 0%,#17222d 48%,#111923 100%);
+
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+
+  background:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+  background-size:80px 80px;
+
+  mask-image:linear-gradient(
+    to bottom,
+    black 0%,
+    rgba(0,0,0,.65) 45%,
+    transparent 100%
+  );
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:rgba(209,173,112,.05);
+  filter:blur(100px);
+  top:20%;
+  right:-250px;
+  pointer-events:none;
+  z-index:-1;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  display:block;
+  width:100%;
+}
+
+.container{
+  width:min(1180px,90%);
+  margin:auto;
+}
+
+
+/* =====================================================
+   CINEMATIC INTRO
+===================================================== */
+
+#intro{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(209,173,112,.14),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #0c151f 0%,
+      #162331 52%,
+      #101923 100%
+    );
+
+  animation:introExit 1s ease 4.8s forwards;
+}
+
+#intro::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    );
+
+  background-size:80px 80px;
+  opacity:.45;
+}
+
+.intro-glow{
+  position:absolute;
+
+  width:420px;
+  height:420px;
+
+  border-radius:50%;
+
+  background:rgba(209,173,112,.08);
+
+  filter:blur(85px);
+
+  animation:introGlow 3s ease-in-out infinite;
+}
+
+.intro-content{
+  position:relative;
+  z-index:2;
+
+  text-align:center;
+  padding:30px;
+}
+
+.intro-mark{
+  font-size:43px;
+
+  margin-bottom:16px;
+
+  opacity:0;
+
+  transform:
+    translateY(18px)
+    scale(.8);
+
+  animation:
+    introFade .8s ease .15s forwards;
+}
+
+.intro-small{
+  color:var(--gold2);
+
+  font-size:11px;
+  font-weight:700;
+
+  letter-spacing:7px;
+
+  opacity:0;
+
+  transform:translateY(18px);
+
+  animation:
+    introFade .8s ease .5s forwards;
+}
+
+.intro-title{
+  margin:20px 0 0;
+
+  font-family:"Playfair Display",serif;
+
+  font-size:clamp(40px,7vw,82px);
+
+  line-height:.95;
+
+  letter-spacing:5px;
+
+  color:var(--white);
+
+  opacity:0;
+
+  transform:translateY(35px);
+
+  filter:blur(8px);
+
+  animation:
+    introTitle 1.2s cubic-bezier(.2,.8,.2,1) .9s forwards;
+}
+
+.intro-title span{
+  color:var(--gold2);
+}
+
+.intro-line{
+  width:0;
+  height:1px;
+
+  margin:25px auto 21px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold2),
+      transparent
+    );
+
+  animation:
+    introLine 1s ease 2s forwards;
+}
+
+.intro-sub{
+  color:#aeb8c2;
+
+  font-size:10px;
+
+  letter-spacing:5px;
+
+  opacity:0;
+
+  transform:translateY(14px);
+
+  animation:
+    introFade .8s ease 2.25s forwards;
+}
+
+@keyframes introFade{
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+
+}
+
+@keyframes introTitle{
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+    letter-spacing:2px;
+  }
+
+}
+
+@keyframes introLine{
+
+  to{
+    width:240px;
+  }
+
+}
+
+@keyframes introGlow{
+
+  0%,100%{
+    transform:scale(.9);
+    opacity:.55;
+  }
+
+  50%{
+    transform:scale(1.15);
+    opacity:1;
+  }
+
+}
+
+@keyframes introExit{
+
+  0%{
+    opacity:1;
+    visibility:visible;
+  }
+
+  70%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+
+}
+
+
+/* =====================================================
+   NAV
+===================================================== */
+
+header{
+  position:fixed;
+
+  left:0;
+  right:0;
+  top:0;
+
+  height:78px;
+
+  z-index:999;
+
+  background:rgba(16,25,35,.76);
+
+  backdrop-filter:blur(22px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  width:min(1180px,90%);
+
+  height:100%;
+
+  margin:auto;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:14px;
+
+  font-weight:700;
+
+  letter-spacing:3px;
+}
+
+.logo span{
+  color:var(--gold2);
+}
+
+.jai{
+  position:absolute;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  color:var(--gold2);
+
+  font-size:12px;
+
+  font-weight:600;
+
+  letter-spacing:3px;
+
+  white-space:nowrap;
+}
+
+nav{
+  display:flex;
+
+  gap:25px;
+}
+
+nav a{
+  color:#bdc6ce;
+
+  font-size:11px;
+
+  letter-spacing:1.4px;
+
+  text-transform:uppercase;
+
+  transition:.3s;
+}
+
+nav a:hover{
+  color:var(--gold2);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+  min-height:100vh;
+
+  display:flex;
+
+  align-items:center;
+
+  padding:145px 0 100px;
+}
+
+.hero-grid{
+  display:grid;
+
+  grid-template-columns:1fr .82fr;
+
+  gap:80px;
+
+  align-items:center;
+}
+
+.eyebrow{
+  color:var(--gold2);
+
+  font-size:10px;
+
+  letter-spacing:4px;
+
+  text-transform:uppercase;
+
+  margin-bottom:25px;
+}
+
+h1{
+  font-family:"Playfair Display",serif;
+
+  font-size:clamp(48px,6.7vw,86px);
+
+  line-height:.98;
+
+  letter-spacing:-3px;
+
+  color:var(--white);
+
+  margin-bottom:28px;
+}
+
+h1 span{
+  color:var(--gold2);
+}
+
+.hero-description{
+  max-width:620px;
+
+  color:var(--muted);
+
+  font-size:16px;
+
+  line-height:1.9;
+}
+
+.hero-buttons{
+  display:flex;
+
+  gap:14px;
+
+  margin-top:35px;
+
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 22px;
+
+  border:1px solid var(--border);
+
+  font-size:11px;
+
+  letter-spacing:1.5px;
+
+  text-transform:uppercase;
+
+  transition:.35s;
+}
+
+.btn-primary{
+  color:#17202a;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold),
+      var(--gold2)
+    );
+
+  border:none;
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,.035);
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.22);
+}
+
+.hero-photo{
+  position:relative;
+
+  aspect-ratio:4/5;
+
+  padding:9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(239,211,154,.65),
+      rgba(255,255,255,.06) 35%,
+      rgba(120,146,170,.30)
+    );
+
+  box-shadow:var(--shadow);
+
+  transform:rotate(2deg);
+
+  transition:.6s;
+}
+
+.hero-photo:hover{
+  transform:rotate(0deg) translateY(-8px);
+}
+
+.hero-photo img{
+  height:100%;
+
+  object-fit:cover;
+}
+
+.hero-caption{
+  position:absolute;
+
+  left:25px;
+  right:25px;
+  bottom:25px;
+
+  padding:16px;
+
+  background:rgba(12,19,27,.78);
+
+  backdrop-filter:blur(15px);
+
+  border:
+    1px solid rgba(255,255,255,.10);
+
+  color:var(--gold2);
+
+  font-size:10px;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+section{
+  padding:120px 0;
+}
+
+.section-label{
+  color:var(--gold2);
+
+  font-size:10px;
+
+  letter-spacing:4px;
+
+  text-transform:uppercase;
+}
+
+.section-title{
+  font-family:"Playfair Display",serif;
+
+  color:var(--white);
+
+  font-size:46px;
+
+  margin-top:10px;
+}
+
+.section-description{
+  max-width:690px;
+
+  color:var(--muted);
+
+  line-height:1.85;
+
+  margin-top:14px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:25px;
+
+  margin-top:48px;
+}
+
+.card{
+  padding:34px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(39,53,67,.76),
+      rgba(21,31,41,.72)
+    );
+
+  border:
+    1px solid var(--border2);
+
+  box-shadow:var(--shadow);
+
+  backdrop-filter:blur(14px);
+
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+
+  border-color:var(--border);
+}
+
+.card h3{
+  font-size:19px;
+
+  margin-bottom:15px;
+}
+
+.card p{
+  color:var(--muted);
+
+  line-height:1.85;
+}
+
+.stats{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:12px;
+
+  margin-top:25px;
+}
+
+.stat{
+  padding:20px;
+
+  background:rgba(255,255,255,.035);
+
+  border:
+    1px solid var(--border2);
+}
+
+.stat strong{
+  display:block;
+
+  color:var(--gold2);
+
+  font-size:24px;
+}
+
+.stat small{
+  color:var(--muted);
+
+  font-size:10px;
+
+  letter-spacing:1px;
+}
+
+
+/* =====================================================
+   JUDO
+===================================================== */
+
+.judo-intro{
+  margin-top:48px;
+
+  display:grid;
+
+  grid-template-columns:.8fr 1.2fr;
+
+  gap:25px;
+}
+
+.judo-feature{
+  min-height:430px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  border:
+    1px solid var(--border);
+}
+
+.judo-feature img{
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.7s;
+}
+
+.judo-feature:hover img{
+  transform:scale(1.06);
+}
+
+.judo-overlay{
+  position:absolute;
+
+  inset:auto 0 0;
+
+  padding:30px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(7,13,19,.95)
+    );
+}
+
+.judo-overlay h3{
+  font-family:"Playfair Display",serif;
+
+  font-size:31px;
+}
+
+.judo-overlay p{
+  color:#c2cad1;
+
+  margin-top:8px;
+}
+
+.achievement-grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:18px;
+}
+
+.achievement{
+  position:relative;
+
+  min-height:205px;
+
+  overflow:hidden;
+
+  border:
+    1px solid var(--border2);
+
+  background:var(--bg3);
+}
+
+.achievement img{
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:.55;
+
+  transition:.6s;
+}
+
+.achievement:hover img{
+  transform:scale(1.08);
+
+  opacity:.75;
+}
+
+.achievement-content{
+  position:absolute;
+
+  inset:auto 0 0;
+
+  padding:22px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(8,14,20,.96)
+    );
+}
+
+.achievement-year{
+  color:var(--gold2);
+
+  font-size:10px;
+
+  letter-spacing:2px;
+}
+
+.achievement h3{
+  margin-top:6px;
+
+  font-size:16px;
+}
+
+.achievement p{
+  color:#aeb8c2;
+
+  font-size:11px;
+
+  margin-top:5px;
+}
+
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.timeline{
+  margin-top:50px;
+
+  max-width:850px;
+
+  position:relative;
+}
+
+.timeline::before{
+  content:"";
+
+  position:absolute;
+
+  left:8px;
+  top:0;
+  bottom:0;
+
+  width:1px;
+
+  background:
+    linear-gradient(
+      var(--gold),
+      rgba(209,173,112,.05)
+    );
+}
+
+.timeline-item{
+  position:relative;
+
+  padding-left:48px;
+
+  margin-bottom:43px;
+}
+
+.timeline-item::before{
+  content:"";
+
+  position:absolute;
+
+  left:3px;
+  top:5px;
+
+  width:11px;
+  height:11px;
+
+  border-radius:50%;
+
+  background:var(--gold2);
+
+  box-shadow:
+    0 0 0 5px rgba(209,173,112,.08),
+    0 0 20px rgba(209,173,112,.35);
+}
+
+.timeline-year{
+  color:var(--gold2);
+
+  font-size:10px;
+
+  letter-spacing:3px;
+}
+
+.timeline-item h3{
+  margin-top:8px;
+}
+
+.timeline-item p{
+  color:var(--muted);
+
+  line-height:1.75;
+
+  margin-top:7px;
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery{
+  display:grid;
+
+  grid-template-columns:
+    1.25fr .75fr .75fr;
+
+  grid-auto-rows:250px;
+
+  gap:12px;
+
+  margin-top:48px;
+}
+
+.gallery-item{
+  overflow:hidden;
+
+  position:relative;
+
+  border:
+    1px solid var(--border2);
+
+  background:var(--bg3);
+}
+
+.gallery-item:first-child{
+  grid-row:span 2;
+}
+
+.gallery-item img{
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.7s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.08);
+}
+
+
+/* =====================================================
+   INTERESTS
+===================================================== */
+
+.tags{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin-top:30px;
+}
+
+.tag{
+  padding:13px 17px;
+
+  border:
+    1px solid var(--border2);
+
+  background:rgba(255,255,255,.035);
+
+  color:#c5ccd2;
+
+  font-size:11px;
+
+  transition:.3s;
+}
+
+.tag:hover{
+  color:var(--gold2);
+
+  border-color:var(--border);
+
+  transform:translateY(-3px);
+}
+
+
+/* =====================================================
+   HERITAGE
+===================================================== */
+
+.heritage{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:22px;
+
+  margin-top:48px;
+}
+
+.heritage-card{
+  min-height:360px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:35px;
+
+  border:
+    1px solid var(--border);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(43,54,65,.82),
+      rgba(19,28,37,.88)
+    );
+}
+
+.heritage-number{
+  color:rgba(239,211,154,.25);
+
+  font-size:65px;
+
+  font-family:"Playfair Display",serif;
+}
+
+.heritage-card h3{
+  font-family:"Playfair Display",serif;
+
+  font-size:30px;
+
+  margin-top:15px;
+}
+
+.heritage-card p{
+  color:var(--muted);
+
+  line-height:1.85;
+
+  margin-top:14px;
+}
+
+.heritage-note{
+  color:var(--gold2);
+
+  font-size:10px;
+
+  letter-spacing:2px;
+
+  margin-top:22px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-box{
+  margin-top:45px;
+
+  padding:80px 30px;
+
+  text-align:center;
+
+  border:
+    1px solid var(--border);
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(209,173,112,.11),
+      transparent 55%
+    ),
+    rgba(24,35,46,.65);
+}
+
+.contact-box h2{
+  font-family:"Playfair Display",serif;
+
+  font-size:50px;
+}
+
+.contact-box p{
+  color:var(--muted);
+
+  margin:15px auto 25px;
+
+  max-width:550px;
+}
+
+.email{
+  color:var(--gold2);
+
+  font-size:14px;
+}
+
+.socials{
+  display:flex;
+
+  justify-content:center;
+
+  gap:12px;
+
+  margin-top:30px;
+
+  flex-wrap:wrap;
+}
+
+.social{
+  padding:14px 19px;
+
+  border:
+    1px solid var(--border2);
+
+  color:#c5ccd2;
+
+  font-size:11px;
+
+  letter-spacing:1px;
+
+  transition:.3s;
+}
+
+.social:hover{
+  color:var(--gold2);
+
+  border-color:var(--border);
+
+  transform:translateY(-3px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+  padding:65px 0 35px;
+
+  border-top:
+    1px solid rgba(255,255,255,.08);
+
+  text-align:center;
+}
+
+.footer-motto{
+  font-family:"Playfair Display",serif;
+
+  color:var(--gold2);
+
+  font-size:27px;
+
+  letter-spacing:3px;
+}
+
+.footer-label{
+  margin-top:10px;
+
+  color:#8f9ba6;
+
+  font-size:9px;
+
+  letter-spacing:3px;
+}
+
+.footer-jai{
+  margin-top:28px;
+
+  color:#b6c0c8;
+
+  font-size:11px;
+
+  letter-spacing:2px;
+}
+
+.copyright{
+  margin-top:28px;
+
+  color:#697580;
+
+  font-size:9px;
+
+  letter-spacing:1px;
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.reveal{
+  opacity:0;
+
+  transform:translateY(35px);
+
+  transition:
+    opacity .9s ease,
+    transform .9s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+
+  transform:none;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:900px){
+
+  .jai{
+    display:none;
+  }
+
+  nav{
+    gap:13px;
+  }
+
+  nav a{
+    font-size:9px;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+
+    gap:50px;
+  }
+
+  .hero-photo{
+    width:min(500px,100%);
+
+    margin:auto;
+  }
+
+  .about-grid,
+  .judo-intro,
+  .heritage{
+    grid-template-columns:1fr;
+  }
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+
+    grid-auto-rows:220px;
+  }
+
+  .gallery-item:first-child{
+    grid-row:span 1;
+  }
+
+}
+
+@media(max-width:560px){
+
+  header{
+    height:68px;
+  }
+
+  .logo{
+    font-size:10px;
+  }
+
+  nav{
+    gap:9px;
+  }
+
+  nav a{
+    font-size:8px;
+
+    letter-spacing:.7px;
+  }
+
+  .hero{
+    padding-top:120px;
+  }
+
+  h1{
+    font-size:49px;
+  }
+
+  .section-title{
+    font-size:37px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .achievement-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+
+    grid-auto-rows:180px;
+  }
+
+  .contact-box{
+    padding:60px 20px;
+  }
+
+  .contact-box h2{
+    font-size:38px;
+  }
+
+  .footer-motto{
+    font-size:20px;
+  }
+
+  .intro-small{
+    letter-spacing:4px;
+  }
+
+  .intro-title{
+    font-size:40px;
+  }
+
+  .intro-sub{
+    letter-spacing:3px;
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+  }
+
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
+
+}
+
+
+/* =====================================================
+   INTRO REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+  #intro{
+    animation:introExit .4s ease .8s forwards;
+  }
+
+  #intro *{
+    animation:none!important;
+
+    opacity:1!important;
+
+    transform:none!important;
+
+    filter:none!important;
+  }
+
+<body>
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     CINEMATIC INTRO
+===================================================== -->
+
+<div id="intro">
+
+  <div class="intro-glow"></div>
+
+  <div class="intro-content">
+
+    <div class="intro-mark">
+      🚩
+    </div>
+
+    <div class="intro-small">
+      JAI BHAWANI
+    </div>
+
+    <h2 class="intro-title">
+
+      SHWET SHYAM<br>
+
+      <span>
+        SINGH SOLANKI
+      </span>
+
+    </h2>
+
+    <div class="intro-line"></div>
+
+    <p class="intro-sub">
+      STUDENT • JUDO • CREATIVE
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAV
+===================================================== -->
+
+<header>
+
+  <div class="nav">
+
+    <div class="logo">
+      SHWET <span>SHYAM</span>
+    </div>
+
+    <div class="jai">
+      JAI BHAWANI 🚩
+    </div>
+
+    <nav>
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#judo">
+        Judo
+      </a>
+
+      <a href="#journey">
+        Journey
+      </a>
+
+      <a href="#creative">
+        Creative
+      </a>
+
+      <a href="#heritage">
+        Heritage
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        Student • Judo Athlete • Creative
+      </div>
+
+      <h1>
+
+        Shwet Shyam<br>
+
+        <span>
+          Singh Solanki
+        </span>
+
+      </h1>
+
+      <p class="hero-description">
+
+        A student from Patna, Bihar, building a journey around
+        learning, discipline, sport, creativity and the experiences
+        that shape life.
+
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a href="#judo" class="btn btn-primary">
+          Explore Journey
+        </a>
+
+        <a href="#contact" class="btn btn-secondary">
+          Connect
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-photo reveal">
+
+      <img
+        src="assets/photo1.jpg"
+        alt="Judo achievement photograph"
+      >
+
+      <div class="hero-caption">
+        Discipline • Competition • Growth
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+  <div class="container">
+
+
+    <div class="reveal">
+
+      <div class="section-label">
+        01 / About
+      </div>
+
+      <h2 class="section-title">
+        More than one pursuit.
+      </h2>
+
+      <p class="section-description">
+
+        Academics, sport, creativity and curiosity all have a place
+        in my journey. I value discipline while keeping space for
+        exploration, stories, travel and new experiences.
+
+      </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+      <div class="card reveal">
+
+        <h3>
+          Who I am
+        </h3>
+
+        <p>
+
+          I am a student based in Patna, Bihar, India.
+          Alongside academics, Judo has become an important part
+          of my personal development, teaching me consistency,
+          patience and competitive discipline.
+
+        </p>
+
+
+        <div class="stats">
+
+
+          <div class="stat">
+
+            <strong>
+              2024
+            </strong>
+
+            <small>
+              Judo Began
+            </small>
+
+          </div>
+
+
+          <div class="stat">
+
+            <strong>
+              2026
+            </strong>
+
+            <small>
+              Continuing
+            </small>
+
+          </div>
+
+
+          <div class="stat">
+
+            <strong>
+              India
+            </strong>
+
+            <small>
+              Based In
+            </small>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3>
+          Mindset
+        </h3>
+
+        <p>
+
+          Curious, calm, creative and ambitious.
+          I enjoy healthy competition, learning from experiences
+          and working toward goals without losing the lighter
+          side of life.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     JUDO
+===================================================== -->
+
+<section id="judo">
+
+  <div class="container">
+
+
+    <div class="reveal">
+
+      <div class="section-label">
+        02 / Judo
+      </div>
+
+      <h2 class="section-title">
+        Discipline in motion.
+      </h2>
+
+      <p class="section-description">
+
+        My Judo journey started in 2024.
+        Every competition has been another opportunity
+        to learn, compete and grow.
+
+      </p>
+
+    </div>
+
+
+    <div class="judo-intro">
+
+
+      <div class="judo-feature reveal">
+
+        <img
+          src="assets/photo2.jpg"
+          alt="Judo competition photograph"
+        >
+
+        <div class="judo-overlay">
+
+          <h3>
+            The mat teaches.
+          </h3>
+
+          <p>
+            Focus • Respect • Discipline
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="achievement-grid">
+
+
+        <div class="achievement reveal">
+
+          <img
+            src="assets/photo3.jpg"
+            alt="Judo achievement photograph"
+          >
+
+          <div class="achievement-content">
+
+            <div class="achievement-year">
+              2024
+            </div>
+
+            <h3>
+              Kendriya Vidyalaya Regional Sports Meet
+            </h3>
+
+            <p>
+              3rd Place • Bronze
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="achievement reveal">
+
+          <img
+            src="assets/photo4.jpg"
+            alt="Judo medal photograph"
+          >
+
+          <div class="achievement-content">
+
+            <div class="achievement-year">
+              2025
+            </div>
+
+            <h3>
+              Kendriya Vidyalaya Regional Sports Meet
+            </h3>
+
+            <p>
+              1st Place • Gold
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="achievement reveal">
+
+          <img
+            src="assets/photo5.jpg"
+            alt="Judo sports photograph"
+          >
+
+          <div class="achievement-content">
+
+            <div class="achievement-year">
+              2025
+            </div>
+
+            <h3>
+              National Sports Meet
+            </h3>
+
+            <p>
+              Participated in Agra
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="achievement reveal">
+
+          <img
+            src="assets/photo6.jpg"
+            alt="Judo competition photograph"
+          >
+
+          <div class="achievement-content">
+
+            <div class="achievement-year">
+              2026
+            </div>
+
+            <h3>
+              Kendriya Vidyalaya Regional Sports Meet
+            </h3>
+
+            <p>
+              2nd Place • Silver
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+
+<section id="journey">
+
+  <div class="container">
+
+
+    <div class="reveal">
+
+      <div class="section-label">
+        03 / Journey
+      </div>
+
+      <h2 class="section-title">
+        Milestones.
+      </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+      <div class="timeline-item reveal">
+
+        <div class="timeline-year">
+          2024
+        </div>
+
+        <h3>
+          The beginning
+        </h3>
+
+        <p>
+
+          Started Judo and competed at the Kendriya Vidyalaya
+          Regional Sports Meet, finishing 3rd.
+
+        </p>
+
+      </div>
+
+
+      <div class="timeline-item reveal">
+
+        <div class="timeline-year">
+          2025
+        </div>
+
+        <h3>
+          Regional Gold
+        </h3>
+
+        <p>
+
+          Won 1st place at the Kendriya Vidyalaya
+          Regional Sports Meet.
+
+        </p>
+
+      </div>
+
+
+      <div class="timeline-item reveal">
+
+        <div class="timeline-year">
+          2025
+        </div>
+
+        <h3>
+          National stage
+        </h3>
+
+        <p>
+
+          Participated in the Kendriya Vidyalaya National
+          Sports Meet in Agra.
+
+        </p>
+
+      </div>
+
+
+      <div class="timeline-item reveal">
+
+        <div class="timeline-year">
+          2025
+        </div>
+
+        <h3>
+          Bihar state-level competition
+        </h3>
+
+        <p>
+
+          Secured 3rd place at a Bihar state-level
+          Judo competition.
+
+        </p>
+
+      </div>
+
+
+      <div class="timeline-item reveal">
+
+        <div class="timeline-year">
+          2026
+        </div>
+
+        <h3>
+          Regional Silver
+        </h3>
+
+        <p>
+
+          Finished 2nd in the Judo weight category
+          at the Kendriya Vidyalaya Regional Sports Meet.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CREATIVE
+===================================================== -->
+
+<section id="creative">
+
+  <div class="container">
+
+
+    <div class="reveal">
+
+      <div class="section-label">
+        04 / Creative Side
+      </div>
+
+      <h2 class="section-title">
+        Beyond the mat.
+      </h2>
+
+      <p class="section-description">
+
+        Creativity is another part of the journey —
+        editing, music, stories, travel and the visual moments
+        found in everyday life.
+
+      </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="assets/photo7.jpg"
+          alt="Personal photograph"
+        >
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="assets/photo8.jpg"
+          alt="Personal photograph"
+        >
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="assets/photo5.jpg"
+          alt="Personal photograph"
+        >
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="assets/photo6.jpg"
+          alt="Personal photograph"
+        >
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="assets/photo3.jpg"
+          alt="Personal photograph"
+        >
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tags reveal">
+
+      <div class="tag">
+        Cooking
+      </div>
+
+      <div class="tag">
+        Music
+      </div>
+
+      <div class="tag">
+        Travelling
+      </div>
+
+      <div class="tag">
+        Editing
+      </div>
+
+      <div class="tag">
+        Stories & Novels
+      </div>
+
+      <div class="tag">
+        History
+      </div>
+
+      <div class="tag">
+        Web Series
+      </div>
+
+      <div class="tag">
+        Fitness
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     HERITAGE
+===================================================== -->
+
+<section id="heritage">
+
+  <div class="container">
+
+
+    <div class="reveal">
+
+      <div class="section-label">
+        05 / Heritage
+      </div>
+
+      <h2 class="section-title">
+        History. Courage. Legacy.
+      </h2>
+
+      <p class="section-description">
+
+        Historical figures and stories that represent courage,
+        determination, service and resilience.
+
+      </p>
+
+    </div>
+
+
+    <div class="heritage">
+
+
+      <div class="heritage-card reveal">
+
+        <div class="heritage-number">
+          I
+        </div>
+
+        <h3>
+          Maharana Pratap
+        </h3>
+
+        <p>
+
+          Maharana Pratap remains an important historical figure
+          associated with courage, independence and determination.
+          His story represents resilience and an unwavering
+          commitment to one's principles.
+
+        </p>
+
+        <div class="heritage-note">
+          COURAGE • RESOLVE • HISTORY
+        </div>
+
+      </div>
+
+
+      <div class="heritage-card reveal">
+
+        <div class="heritage-number">
+          II
+        </div>
+
+        <h3>
+          Rifleman Jaswant Singh Rawat
+        </h3>
+
+        <p>
+
+          Rifleman Jaswant Singh Rawat is remembered for his service
+          during the 1962 Sino-Indian War, particularly in the Battle
+          of Nuranang. His story is remembered as part of India's
+          military history and reflects courage and dedication to duty.
+
+        </p>
+
+        <div class="heritage-note">
+          SERVICE • BRAVERY • DUTY
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <div class="contact-box reveal">
+
+      <h2>
+        Let's connect.
+      </h2>
+
+      <p>
+
+        For genuine conversations, creative collaborations
+        or simply saying hello.
+
+      </p>
+
+      <a
+        class="email"
+        href="mailto:shwetshyamsinghsolanki001@gmail.com"
+      >
+        shwetshyamsinghsolanki001@gmail.com
+      </a>
+
+
+      <div class="socials">
+
+
+        <a
+          class="social"
+          href="https://www.instagram.com/the_parashar_kshatriya001/"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram
+        </a>
+
+
+        <a
+          class="social"
+          href="https://www.youtube.com/@ShwetshyamSinghsolanki"
+          target="_blank"
+          rel="noopener"
+        >
+          YouTube
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <div class="footer-motto">
+    VEER BHOGYA VASUNDHARA
+  </div>
+
+  <div class="footer-label">
+    RAJPUTANA RIFLES • REGIMENTAL MOTTO
+  </div>
+
+  <div class="footer-jai">
+    JAI BHAWANI 🚩
+  </div>
+
+  <div class="copyright">
+    © 2026 Shwet Shyam Singh Solanki • Patna, Bihar, India
+  </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+const revealObserver =
+  new IntersectionObserver(
+
+    (entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add("visible");
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold:.12
+    }
+
+  );
+
+
+revealElements.forEach(element => {
+
+  revealObserver.observe(element);
+
+});
+
+
+/* =========================
+   REMOVE INTRO
+========================= */
+
+window.addEventListener("load",()=>{
+
+  setTimeout(()=>{
+
+    const intro =
+      document.getElementById("intro");
+
+    if(intro){
+      intro.remove();
+    }
+
+  },5900);
+
+});
+
+</script>
+
+
+</body>
+</html>
