@@ -1040,40 +1040,6 @@
         filter: saturate(.95);
     }
 
-
-    .home-ring {
-
-        position: absolute;
-
-        width: min(430px, 65%);
-
-        aspect-ratio: 1;
-
-        border: 1px solid rgba(255,255,255,.7);
-
-        border-radius: 50%;
-
-        left: 50%;
-        top: 50%;
-
-        transform: translate(-50%,-50%);
-
-        animation:
-            spinSlow 20s linear infinite;
-    }
-
-
-    @keyframes spinSlow {
-
-        to {
-            transform:
-                translate(-50%,-50%)
-                rotate(360deg);
-        }
-
-    }
-
-
     .scroll-indicator {
 
         position: absolute;
@@ -2930,7 +2896,72 @@
         }
 
     }
+    /* MOBILE IMAGE + TEXT FIX */
 
+    #about .about-photo,
+    #judo .judo-hero {
+        height: auto;
+        min-height: 0;
+    }
+
+    #about .about-photo img,
+    #judo .judo-hero img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+        object-fit: contain;
+        display: block;
+    }
+
+    #judo .judo-hero {
+        margin-top: 45px;
+    }
+
+    #judo .judo-overlay {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        padding: 18px 0 0;
+        color: #111;
+        text-shadow: none;
+    }
+
+    #judo .judo-overlay strong {
+        font-size: 13px;
+    }
+
+    #judo .judo-overlay p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    .certificate-slot {
+        min-height: 220px;
+        height: auto;
+    }
+
+    .certificate-slot img {
+        width: 100%;
+        height: auto;
+        max-height: 360px;
+        object-fit: contain;
+    }
+
+    .beyond-header p,
+    .achievement-info p,
+    .interests,
+    #about .about-text p {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .gallery-item img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
     /* =====================================================
        SMALL PHONES
