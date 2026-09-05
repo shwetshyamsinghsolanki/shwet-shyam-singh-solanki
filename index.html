@@ -792,51 +792,6 @@
     flex-shrink: 0;
 }
 
-        transition:
-            transform .4s var(--ease),
-            border-color .3s ease;
-    }
-
-
-    .jai-bhim-badge:hover {
-
-        transform:
-            translateX(-50%)
-            translateY(-3px);
-
-        border-color: var(--red);
-    }
-
-
-    .jai-bhim-flag {
-
-        width: 15px;
-        height: 11px;
-
-        background: var(--red);
-
-        display: inline-block;
-
-        position: relative;
-    }
-
-
-    .jai-bhim-flag::after {
-
-        content: "";
-
-        position: absolute;
-
-        left: 0;
-        top: 0;
-
-        width: 2px;
-        height: 16px;
-
-        background: #222;
-    }
-
-
     /* =====================================================
        MAIN
     ====================================================== */
@@ -4842,11 +4797,48 @@
 
 
 
-<!-- =====================================================
-loader.classList.add
-                        .unobserve(entry.target);
+<script>
 
+/* =====================================================
+   LOADER
+====================================================== */
+
+const loader = document.getElementById("loader");
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(() => {
+
+            if (loader) {
+                loader.classList.add("hide");
+            }
+
+            document.body.classList.remove("loading");
+
+        }, 1800);
+
+    }
+);
+
+
+/* =====================================================
+   REVEAL ANIMATIONS
+====================================================== */
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) {
+                    return;
                 }
+
+                entry.target.classList.add("visible");
+                revealObserver.unobserve(entry.target);
 
             });
 
@@ -4868,7 +4860,6 @@ document
     });
 
 
-
 /* =====================================================
    ACTIVE DESKTOP NAV
 ====================================================== */
@@ -4876,21 +4867,17 @@ document
 const sections =
     document.querySelectorAll("section[id]");
 
-
 const navLinks =
     document.querySelectorAll(".nav a");
-
 
 function updateActiveNavigation() {
 
     let currentSection = "home";
 
-
     sections.forEach(section => {
 
         const position =
             section.getBoundingClientRect().top;
-
 
         if (
             position <=
@@ -4904,11 +4891,9 @@ function updateActiveNavigation() {
 
     });
 
-
     navLinks.forEach(link => {
 
         link.classList.remove("active");
-
 
         if (
             link.getAttribute("href") ===
@@ -4923,7 +4908,6 @@ function updateActiveNavigation() {
 
 }
 
-
 window.addEventListener(
     "scroll",
     updateActiveNavigation,
@@ -4932,9 +4916,7 @@ window.addEventListener(
     }
 );
 
-
 updateActiveNavigation();
-
 
 
 /* =====================================================
@@ -4944,84 +4926,41 @@ updateActiveNavigation();
 const menuButton =
     document.getElementById("menuBtn");
 
-
 const mobileMenu =
     document.getElementById("mobileMenu");
 
+if (menuButton && mobileMenu) {
 
-menuButton.addEventListener(
-    "click",
-    () => {
+    menuButton.addEventListener(
+        "click",
+        () => {
 
-        const isOpen =
-            mobileMenu.classList.toggle("open");
+            const isOpen =
+                mobileMenu.classList.toggle("open");
 
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
-        );
-
-
-        const icon =
-            menuButton.querySelector("i");
-
-
-        if (isOpen) {
-
-            icon.classList.remove(
-                "fa-bars"
+            menuButton.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
             );
 
-            icon.classList.add(
-                "fa-xmark"
-            );
+            const icon =
+                menuButton.querySelector("i");
 
-        } else {
+            if (!icon) {
+                return;
+            }
 
-            icon.classList.remove(
-                "fa-xmark"
-            );
+            if (isOpen) {
 
-            icon.classList.add(
-                "fa-bars"
-            );
+                icon.classList.remove(
+                    "fa-bars"
+                );
 
-        }
+                icon.classList.add(
+                    "fa-xmark"
+                );
 
-    }
-);
-
-
-
-/* =====================================================
-   CLOSE MOBILE MENU AFTER CLICK
-====================================================== */
-
-document
-    .querySelectorAll(".mobile-menu a")
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                mobileMenu
-                    .classList
-                    .remove("open");
-
-
-                menuButton
-                    .setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-
-                const icon =
-                    menuButton
-                        .querySelector("i");
-
+            } else {
 
                 icon.classList.remove(
                     "fa-xmark"
@@ -5032,10 +4971,51 @@ document
                 );
 
             }
-        );
 
-    });
+        }
+    );
 
+
+    document
+        .querySelectorAll(".mobile-menu a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    mobileMenu
+                        .classList
+                        .remove("open");
+
+                    menuButton
+                        .setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    const icon =
+                        menuButton
+                            .querySelector("i");
+
+                    if (!icon) {
+                        return;
+                    }
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+            );
+
+        });
+
+}
 
 
 /* =====================================================
@@ -5052,17 +5032,14 @@ window.addEventListener(
             return;
         }
 
-
         const image =
             document.querySelector(
                 ".home-visual img"
             );
 
-
         if (!image) {
             return;
         }
-
 
         const movement =
             Math.min(
@@ -5070,55 +5047,14 @@ window.addEventListener(
                 38
             );
 
-
         image.style.transform =
-            `scale(1.04)
-             translateY(${movement}px)`;
+            `scale(1.04) translateY(${movement}px)`;
 
     },
     {
         passive: true
     }
 );
-
-
-
-/* =====================================================
-   CERTIFICATE FULLSCREEN VIEW
-====================================================== */
-
-
-
-
-
-/* =====================================================
-   ESCAPE FULLSCREEN
-====================================================== */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key !== "Escape"
-        ) {
-            return;
-        }
-
-        const fullscreen =
-            document.querySelector(
-                'body > div[style*="z-index:99990"]'
-            );
-
-        if (fullscreen) {
-            fullscreen.remove();
-        }
-
-    }
-);
-
-        
-
 
 
 /* =====================================================
@@ -5136,39 +5072,30 @@ document
                 image.style.display =
                     "none";
 
-
                 const parent =
                     image.parentElement;
-
 
                 if (!parent) {
                     return;
                 }
-
 
                 if (
                     parent.querySelector(
                         ".image-missing"
                     )
                 ) {
-
                     return;
-
                 }
-
 
                 const placeholder =
                     document.createElement(
                         "div"
                     );
 
-
                 placeholder.className =
                     "image-missing";
 
-
                 placeholder.innerHTML = `
-
                     <div style="
                         display:flex;
                         align-items:center;
@@ -5183,21 +5110,16 @@ document
                         letter-spacing:3px;
                         text-align:center;
                     ">
-
                         <span style="
                             font-size:22px;
                             opacity:.65;
                         ">
                             <i class="fa-regular fa-image"></i>
                         </span>
-
                         PHOTO / IMAGE<br>
                         UPLOAD SPACE
-
                     </div>
-
                 `;
-
 
                 parent.appendChild(
                     placeholder
@@ -5207,7 +5129,6 @@ document
         );
 
     });
-
 
 
 /* =====================================================
@@ -5223,7 +5144,6 @@ document
         image.decoding = "async";
 
     });
-
 
 
 /* =====================================================
