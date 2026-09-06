@@ -3007,21 +3007,21 @@
 
     @media(prefers-reduced-motion: reduce) {
 
-        *,
-        *::before,
-        *::after {
-
-            animation-duration: .01ms !important;
-
-            animation-iteration-count: 1 !important;
-
-            scroll-behavior: auto !important;
-
-            transition-duration: .01ms !important;
-        }
-
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
     }
-/* HOME SOCIAL MEDIA */
+
+}
+
+
+/* =====================================================
+   HOME SOCIAL MEDIA
+===================================================== */
 
 .home-social-title {
     margin-top: 28px;
@@ -3050,7 +3050,9 @@
     transition: transform .3s ease, opacity .3s ease;
 }
 
+
 /* INSTAGRAM */
+
 .home-social-icons a:nth-child(1) {
     background: linear-gradient(
         45deg,
@@ -3060,35 +3062,83 @@
         #962FBF,
         #4F5BD5
     );
+
     color: transparent;
+
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+
 /* YOUTUBE */
+
 .home-social-icons a:nth-child(2) {
     color: #FF0000;
 }
 
+
 /* X */
+
 .home-social-icons a:nth-child(3) {
     color: #000000;
 }
 
+
 /* FACEBOOK */
+
 .home-social-icons a:nth-child(4) {
     color: #1877F2;
 }
+
+
+/* HOVER */
 
 .home-social-icons a:hover {
     transform: translateY(-3px);
     opacity: .8;
 }
 
+
+/* =====================================================
+   FINAL MOBILE FIX
+===================================================== */
+
+@media screen and (max-width: 1024px) {
+
+    .sidebar {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        min-width: 0 !important;
+    }
+
+    main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .mobile-header {
+        display: flex !important;
+    }
+
+}
+
+
+/* =====================================================
+   END OF CSS
+===================================================== */
+
 </style>
 
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
 <div class="loader" id="loader">
+
     <div class="loader-inner">
 
         <div class="loader-small">
@@ -3096,13 +3146,11 @@
         </div>
 
         <div class="loader-name">
-
             <span>S</span>
             <span>H</span>
             <span>W</span>
             <span>E</span>
             <span>T</span>
-
         </div>
 
         <div class="loader-line"></div>
@@ -3112,10 +3160,9 @@
 </div>
 
 
-
 <!-- =====================================================
      JAI BHIM — TOP CENTER
-====================================================== -->
+===================================================== -->
 
 <div class="jai-bhawani-badge">
 
@@ -3126,10 +3173,9 @@
 </div>
 
 
-
 <!-- =====================================================
      MOBILE HEADER
-====================================================== -->
+===================================================== -->
 
 <header class="mobile-header">
 
@@ -3139,7 +3185,6 @@
         SINGH SOLANKI
 
     </div>
-
 
     <button
         class="menu-btn"
@@ -3155,10 +3200,9 @@
 </header>
 
 
-
 <!-- =====================================================
      MOBILE MENU
-====================================================== -->
+===================================================== -->
 
 <nav class="mobile-menu" id="mobileMenu">
 
@@ -3189,24 +3233,24 @@
 </nav>
 
 
-
 <!-- =====================================================
      DESKTOP SIDEBAR
-====================================================== -->
+===================================================== -->
 
 <aside class="sidebar">
-
 
     <!-- IDENTITY -->
 
     <div class="brand">
 
-       <div class="brand-circle">
-    <img
-        src="profile-photo.jpg"
-        alt="Shwet Shyam Singh Solanki"
-    >
-</div>
+        <div class="brand-circle">
+
+            <img
+                src="profile-photo.jpg"
+                alt="Shwet Shyam Singh Solanki"
+            >
+
+        </div>
 
         <h2>
 
@@ -3214,7 +3258,6 @@
             SINGH SOLANKI
 
         </h2>
-
 
         <p>
             STUDENT · JUDOKA
