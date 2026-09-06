@@ -498,46 +498,37 @@
     }
 
 
-    .brand-circle {
+.brand-circle {
+    margin-bottom: 14px;
 
-        width: 50px;
-        height: 50px;
-
-        border: 1px solid rgba(255,255,255,.35);
-
-        border-radius: 50%;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-family: "Bebas Neue";
-
-        font-size: 19px;
-
-        margin-bottom: 14px;
-
-        transition:
-            transform .5s var(--ease),
-            border-color .3s ease;
-    }
+    transition:
+        transform .5s var(--ease),
+        border-color .3s ease;
+}
 
 
-    .brand:hover .brand-circle {
+.brand-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
 
-        transform: rotate(12deg);
 
-        border-color: var(--red-light);
-    }
+.brand:hover .brand-circle {
+
+    transform: rotate(12deg);
+
+    border-color: var(--red-light);
+}
 
 
-    .brand h2 {
+.brand h2 {
 
-        font-family: "Space Grotesk";
+    font-family: "Space Grotesk";
 
-        font-size: 14px;
+    font-size: 14px;
 
         line-height: 1.05;
 
@@ -1635,14 +1626,14 @@
 
     .gallery-item img {
 
-        width: 100%;
-        height: 100%;
+    width: 100%;
+    height: 100%;
 
-        object-fit: cover;
+    object-fit: contain;
 
-        transition:
-            transform 1s var(--ease);
-    }
+    transition:
+        transform 1s var(--ease);
+}
 
 
     .gallery-item:hover img {
@@ -2141,25 +2132,7 @@
         font-size: clamp(31px, 4vw, 57px);
 
         letter-spacing: .5px;
-    }
-
-
-    .footer-jai {
-
-        margin-top: 15px;
-
-        font-family: "Oswald";
-
-        font-size: 12px;
-
-        letter-spacing: 3px;
-    }
-
-
-    /* =====================================================
-       REVEAL ANIMATIONS
-    ====================================================== */
-
+  
     .reveal {
 
         opacity: 0;
@@ -2486,9 +2459,9 @@
     object-fit: cover;
 
     filter:
-        brightness(.42)
-        saturate(.72)
-        sepia(.12);
+        brightness(1)
+        saturate(.95)
+        sepia(0);
 
     transform: scale(1.03);
 }
@@ -3009,15 +2982,23 @@
             font-size: 82px;
         }
 
+.footer-jai {
 
-        .footer-jai {
+    font-size: 9px;
+    letter-spacing: 1.5px;
 
-            font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
 
-            letter-spacing: 1.5px;
-        }
-
-    }
+.india-flag {
+    width: 22px;
+    height: 15px;
+    display: inline-block;
+    flex-shrink: 0;
+}
 
 
     /* =====================================================
@@ -3107,24 +3088,7 @@
         /* CREATIVE 01–05 ONLY */
 
 .gallery-item {
-    aspect-ratio: 9 / 16 !important;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain !important;
-}
-    </style>
-
-</head>
-
-
-<body class="loading">
-
-
-<!-- =====================================================
-     LOADER
+aspect-ratio: 9 / 16
 ====================================================== -->
 
 <div class="loader" id="loader">
@@ -3241,10 +3205,12 @@
 
     <div class="brand">
 
-        <div class="brand-circle">
-            SS
-        </div>
-
+       <div class="brand-circle">
+    <img
+        src="profile-photo.jpg"
+        alt="Shwet Shyam Singh Solanki"
+    >
+</div>
 
         <h2>
 
@@ -4643,22 +4609,21 @@
             <div class="contact-links">
 
 
-                <!-- EMAIL -->
+              <!-- EMAIL -->
 
-                <a
-                    class="contact-link"
-                    href="mailto:your-email@example.com"
-                    aria-label="Email Shwet Shyam Singh Solanki"
-                >
+<a
+    class="contact-link"
+    href="mailto:shwetshyamsinghsolanki001@gmail.com"
+    aria-label="Email Shwet Shyam Singh Solanki"
+>
+    <i class="fa-regular fa-envelope"></i>
 
-                    <i class="fa-regular fa-envelope"></i>
+    <span>
 
-                    <span>
+        EMAIL<br>
+        shwetshyamsinghsolanki001@gmail.com
 
-                        EMAIL<br>
-                        your-email@example.com
-
-                    </span>
+    </span>
 
                 </a>
 
@@ -4781,7 +4746,14 @@
 
         <div class="footer-jai">
 
-            JAI HIND 🇮🇳
+            JAI HIND
+<svg class="india-flag" viewBox="0 0 24 16" aria-label="Indian flag">
+    <rect width="24" height="16" fill="#fff"/>
+    <rect width="24" height="5.33" fill="#FF9933"/>
+    <rect y="10.67" width="24" height="5.33" fill="#138808"/>
+    <circle cx="12" cy="8" r="2.15" fill="none" stroke="#000080" stroke-width=".45"/>
+    <circle cx="12" cy="8" r=".45" fill="#000080"/>
+</svg>
 
         </div>
 
