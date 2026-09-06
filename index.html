@@ -498,46 +498,37 @@
     }
 
 
-    .brand-circle {
+.brand-circle {
+    margin-bottom: 14px;
 
-        width: 50px;
-        height: 50px;
-
-        border: 1px solid rgba(255,255,255,.35);
-
-        border-radius: 50%;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-family: "Bebas Neue";
-
-        font-size: 19px;
-
-        margin-bottom: 14px;
-
-        transition:
-            transform .5s var(--ease),
-            border-color .3s ease;
-    }
+    transition:
+        transform .5s var(--ease),
+        border-color .3s ease;
+}
 
 
-    .brand:hover .brand-circle {
+.brand-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
 
-        transform: rotate(12deg);
 
-        border-color: var(--red-light);
-    }
+.brand:hover .brand-circle {
+
+    transform: rotate(12deg);
+
+    border-color: var(--red-light);
+}
 
 
-    .brand h2 {
+.brand h2 {
 
-        font-family: "Space Grotesk";
+    font-family: "Space Grotesk";
 
-        font-size: 14px;
+    font-size: 14px;
 
         line-height: 1.05;
 
@@ -747,12 +738,9 @@
 
         color: #707070;
     }
-
-
     /* =====================================================
-      /* ======================================================
-   JAI BHAWANI TOP BADGE
-   ====================================================== */
+       JAI BHAWANI TOP BADGE
+    ====================================================== */
 
 .jai-bhawani-badge {
     position: fixed;
@@ -791,51 +779,6 @@
     display: block;
     flex-shrink: 0;
 }
-
-        transition:
-            transform .4s var(--ease),
-            border-color .3s ease;
-    }
-
-
-    .jai-bhim-badge:hover {
-
-        transform:
-            translateX(-50%)
-            translateY(-3px);
-
-        border-color: var(--red);
-    }
-
-
-    .jai-bhim-flag {
-
-        width: 15px;
-        height: 11px;
-
-        background: var(--red);
-
-        display: inline-block;
-
-        position: relative;
-    }
-
-
-    .jai-bhim-flag::after {
-
-        content: "";
-
-        position: absolute;
-
-        left: 0;
-        top: 0;
-
-        width: 2px;
-        height: 16px;
-
-        background: #222;
-    }
-
 
     /* =====================================================
        MAIN
@@ -1039,40 +982,6 @@
 
         filter: saturate(.95);
     }
-
-
-    .home-ring {
-
-        position: absolute;
-
-        width: min(430px, 65%);
-
-        aspect-ratio: 1;
-
-        border: 1px solid rgba(255,255,255,.7);
-
-        border-radius: 50%;
-
-        left: 50%;
-        top: 50%;
-
-        transform: translate(-50%,-50%);
-
-        animation:
-            spinSlow 20s linear infinite;
-    }
-
-
-    @keyframes spinSlow {
-
-        to {
-            transform:
-                translate(-50%,-50%)
-                rotate(360deg);
-        }
-
-    }
-
 
     .scroll-indicator {
 
@@ -1714,14 +1623,14 @@
 
     .gallery-item img {
 
-        width: 100%;
-        height: 100%;
+    width: 100%;
+    height: 100%;
 
-        object-fit: cover;
+    object-fit: contain;
 
-        transition:
-            transform 1s var(--ease);
-    }
+    transition:
+        transform 1s var(--ease);
+}
 
 
     .gallery-item:hover img {
@@ -2220,25 +2129,7 @@
         font-size: clamp(31px, 4vw, 57px);
 
         letter-spacing: .5px;
-    }
-
-
-    .footer-jai {
-
-        margin-top: 15px;
-
-        font-family: "Oswald";
-
-        font-size: 12px;
-
-        letter-spacing: 3px;
-    }
-
-
-    /* =====================================================
-       REVEAL ANIMATIONS
-    ====================================================== */
-
+  
     .reveal {
 
         opacity: 0;
@@ -2524,36 +2415,68 @@
 
         /* HOME */
 
-        #home {
+      #home {
 
-            min-height: 100svh;
+    min-height: 100svh;
 
-            align-items: flex-end;
+    position: relative;
 
-            padding-bottom: 40px;
-        }
+    display: flex;
 
+    align-items: center;
 
-        .home-visual {
+    overflow: hidden;
 
-            width: 100%;
-
-            height: 100%;
-
-            opacity: .44;
-        }
+    background: #21140e;
+}
 
 
-        .home-content {
+.home-visual {
 
-            width: 100%;
+    position: absolute;
 
-            padding:
-                125px
-                25px
-                40px;
-        }
+    inset: 0;
 
+    width: 100%;
+    height: 100%;
+
+    opacity: 1;
+
+    overflow: hidden;
+
+    background: #21140e;
+
+    z-index: 0;
+}
+.home-visual img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        brightness(.42)
+        saturate(.72)
+        sepia(.12);
+
+    transform: scale(1.03);
+}
+.home-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    padding:
+        145px
+        28px
+        70px;
+
+    color: #f3eadb;
+}
 
         .home-kicker {
 
@@ -2930,7 +2853,72 @@
         }
 
     }
+    /* MOBILE IMAGE + TEXT FIX */
 
+    #about .about-photo,
+    #judo .judo-hero {
+        height: auto;
+        min-height: 0;
+    }
+
+    #about .about-photo img,
+    #judo .judo-hero img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+        object-fit: contain;
+        display: block;
+    }
+
+    #judo .judo-hero {
+        margin-top: 45px;
+    }
+
+    #judo .judo-overlay {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        padding: 18px 0 0;
+        color: #111;
+        text-shadow: none;
+    }
+
+    #judo .judo-overlay strong {
+        font-size: 13px;
+    }
+
+    #judo .judo-overlay p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    .certificate-slot {
+        min-height: 220px;
+        height: auto;
+    }
+
+    .certificate-slot img {
+        width: 100%;
+        height: auto;
+        max-height: 360px;
+        object-fit: contain;
+    }
+
+    .beyond-header p,
+    .achievement-info p,
+    .interests,
+    #about .about-text p {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .gallery-item img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 
     /* =====================================================
        SMALL PHONES
@@ -2991,15 +2979,28 @@
             font-size: 82px;
         }
 
+.footer-jai {
 
-        .footer-jai {
+    font-size: 9px;
+    letter-spacing: 1.5px;
 
-            font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
 
-            letter-spacing: 1.5px;
-        }
+.india-flag {
+    width: 22px;
+    height: 15px;
+    display: inline-block;
+    flex-shrink: 0;
+}
 
-    }
+    } /* close SMALL PHONES */
+
+    } /* close MOBILE */
+
 
 
     /* =====================================================
@@ -3022,18 +3023,84 @@
         }
 
     }
+/* HOME SOCIAL MEDIA */
 
-    </style>
+.home-social-title {
+    margin-top: 28px;
+    font-family: "Space Grotesk";
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #777;
+}
+
+.home-social-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.home-social-icons a {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+/* INSTAGRAM */
+.home-social-icons a:nth-child(1) {
+    background: linear-gradient(
+        45deg,
+        #FEDA75,
+        #FA7E1E,
+        #D62976,
+        #962FBF,
+        #4F5BD5
+    );
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* YOUTUBE */
+.home-social-icons a:nth-child(2) {
+    color: #FF0000;
+}
+
+/* X */
+.home-social-icons a:nth-child(3) {
+    color: #000000;
+}
+
+/* FACEBOOK */
+.home-social-icons a:nth-child(4) {
+    color: #1877F2;
+}
+
+.home-social-icons a:hover {
+    transform: translateY(-3px);
+    opacity: .8;
+}
+
+
+
+/* =====================================================
+   FINAL PHONE / MOBILE OVERRIDE
+   This block is intentionally LAST so it always wins.
+===================================================== */
+
+
+</style>
 
 </head>
 
-
 <body class="loading">
-
-
-<!-- =====================================================
-     LOADER
-====================================================== -->
 
 <div class="loader" id="loader">
 
@@ -3149,10 +3216,12 @@
 
     <div class="brand">
 
-        <div class="brand-circle">
-            SS
-        </div>
-
+       <div class="brand-circle">
+    <img
+        src="profile-photo.jpg"
+        alt="Shwet Shyam Singh Solanki"
+    >
+</div>
 
         <h2>
 
@@ -3373,7 +3442,29 @@
 
         </a>
 
+<div class="home-social-title">
+    SOCIAL MEDIA
+</div>
 
+<div class="home-social-icons">
+
+    <a href="https://www.instagram.com/the_parashar_kshatriya001/" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://www.youtube.com/@ShwetshyamSinghSolanki" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-youtube"></i>
+    </a>
+
+    <a href="https://x.com/Shwetshyam001" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-x-twitter"></i>
+    </a>
+
+    <a href="https://www.facebook.com/shwetshyam.singhsolanki.5" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+</div>
     </div>
 
 
@@ -4529,22 +4620,21 @@
             <div class="contact-links">
 
 
-                <!-- EMAIL -->
+              <!-- EMAIL -->
 
-                <a
-                    class="contact-link"
-                    href="mailto:your-email@example.com"
-                    aria-label="Email Shwet Shyam Singh Solanki"
-                >
+<a
+    class="contact-link"
+    href="mailto:shwetshyamsinghsolanki001@gmail.com"
+    aria-label="Email Shwet Shyam Singh Solanki"
+>
+    <i class="fa-regular fa-envelope"></i>
 
-                    <i class="fa-regular fa-envelope"></i>
+    <span>
 
-                    <span>
+        EMAIL<br>
+        shwetshyamsinghsolanki001@gmail.com
 
-                        EMAIL<br>
-                        your-email@example.com
-
-                    </span>
+    </span>
 
                 </a>
 
@@ -4667,7 +4757,14 @@
 
         <div class="footer-jai">
 
-            JAI HIND 🇮🇳
+            JAI HIND
+<svg class="india-flag" viewBox="0 0 24 16" aria-label="Indian flag">
+    <rect width="24" height="16" fill="#fff"/>
+    <rect width="24" height="5.33" fill="#FF9933"/>
+    <rect y="10.67" width="24" height="5.33" fill="#138808"/>
+    <circle cx="12" cy="8" r="2.15" fill="none" stroke="#000080" stroke-width=".45"/>
+    <circle cx="12" cy="8" r=".45" fill="#000080"/>
+</svg>
 
         </div>
 
@@ -4683,100 +4780,48 @@
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
-
 <script>
 
-
 /* =====================================================
-   PAGE LOADER
+   LOADER
 ====================================================== */
 
-window.addEventListener("load", () => {
+const loader = document.getElementById("loader");
 
-    setTimeout(() => {
+window.addEventListener(
+    "load",
+    () => {
 
-        const loader =
-            document.getElementById("loader");
+        setTimeout(() => {
 
-        loader.classList.add("hide");
+            if (loader) {
+                loader.classList.add("hide");
+            }
 
-        document.body.classList.remove("loading");
+            document.body.classList.remove("loading");
 
-    }, 1800);
+        }, 1800);
 
-});
-
-
-
-/* =====================================================
-   CUSTOM CURSOR
-====================================================== */
-
-const cursor =
-    document.querySelector(".cursor");
-
-
-if (cursor) {
-
-    document.addEventListener("mousemove", (event) => {
-
-        cursor.style.left =
-            event.clientX + "px";
-
-        cursor.style.top =
-            event.clientY + "px";
-
-    });
-
-
-    document
-        .querySelectorAll("a, button, .certificate-slot img")
-        .forEach(element => {
-
-            element.addEventListener(
-                "mouseenter",
-                () => {
-                    cursor.classList.add("big");
-                }
-            );
-
-
-            element.addEventListener(
-                "mouseleave",
-                () => {
-                    cursor.classList.remove("big");
-                }
-            );
-
-        });
-
-}
-
+    }
+);
 
 
 /* =====================================================
-   SCROLL REVEAL
+   REVEAL ANIMATIONS
 ====================================================== */
 
 const revealObserver =
     new IntersectionObserver(
-        (entries) => {
+        entries => {
 
             entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
-
-                    entry.target
-                        .classList
-                        .add("visible");
-
-                    revealObserver
-                        .unobserve(entry.target);
-
+                if (!entry.isIntersecting) {
+                    return;
                 }
+
+                entry.target.classList.add("visible");
+                revealObserver.unobserve(entry.target);
 
             });
 
@@ -4798,7 +4843,6 @@ document
     });
 
 
-
 /* =====================================================
    ACTIVE DESKTOP NAV
 ====================================================== */
@@ -4806,21 +4850,17 @@ document
 const sections =
     document.querySelectorAll("section[id]");
 
-
 const navLinks =
     document.querySelectorAll(".nav a");
-
 
 function updateActiveNavigation() {
 
     let currentSection = "home";
 
-
     sections.forEach(section => {
 
         const position =
             section.getBoundingClientRect().top;
-
 
         if (
             position <=
@@ -4834,11 +4874,9 @@ function updateActiveNavigation() {
 
     });
 
-
     navLinks.forEach(link => {
 
         link.classList.remove("active");
-
 
         if (
             link.getAttribute("href") ===
@@ -4853,7 +4891,6 @@ function updateActiveNavigation() {
 
 }
 
-
 window.addEventListener(
     "scroll",
     updateActiveNavigation,
@@ -4862,9 +4899,7 @@ window.addEventListener(
     }
 );
 
-
 updateActiveNavigation();
-
 
 
 /* =====================================================
@@ -4874,84 +4909,41 @@ updateActiveNavigation();
 const menuButton =
     document.getElementById("menuBtn");
 
-
 const mobileMenu =
     document.getElementById("mobileMenu");
 
+if (menuButton && mobileMenu) {
 
-menuButton.addEventListener(
-    "click",
-    () => {
+    menuButton.addEventListener(
+        "click",
+        () => {
 
-        const isOpen =
-            mobileMenu.classList.toggle("open");
+            const isOpen =
+                mobileMenu.classList.toggle("open");
 
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
-        );
-
-
-        const icon =
-            menuButton.querySelector("i");
-
-
-        if (isOpen) {
-
-            icon.classList.remove(
-                "fa-bars"
+            menuButton.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
             );
 
-            icon.classList.add(
-                "fa-xmark"
-            );
+            const icon =
+                menuButton.querySelector("i");
 
-        } else {
+            if (!icon) {
+                return;
+            }
 
-            icon.classList.remove(
-                "fa-xmark"
-            );
+            if (isOpen) {
 
-            icon.classList.add(
-                "fa-bars"
-            );
+                icon.classList.remove(
+                    "fa-bars"
+                );
 
-        }
+                icon.classList.add(
+                    "fa-xmark"
+                );
 
-    }
-);
-
-
-
-/* =====================================================
-   CLOSE MOBILE MENU AFTER CLICK
-====================================================== */
-
-document
-    .querySelectorAll(".mobile-menu a")
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                mobileMenu
-                    .classList
-                    .remove("open");
-
-
-                menuButton
-                    .setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-
-                const icon =
-                    menuButton
-                        .querySelector("i");
-
+            } else {
 
                 icon.classList.remove(
                     "fa-xmark"
@@ -4962,10 +4954,51 @@ document
                 );
 
             }
-        );
 
-    });
+        }
+    );
 
+
+    document
+        .querySelectorAll(".mobile-menu a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    mobileMenu
+                        .classList
+                        .remove("open");
+
+                    menuButton
+                        .setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    const icon =
+                        menuButton
+                            .querySelector("i");
+
+                    if (!icon) {
+                        return;
+                    }
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+            );
+
+        });
+
+}
 
 
 /* =====================================================
@@ -4982,17 +5015,14 @@ window.addEventListener(
             return;
         }
 
-
         const image =
             document.querySelector(
                 ".home-visual img"
             );
 
-
         if (!image) {
             return;
         }
-
 
         const movement =
             Math.min(
@@ -5000,148 +5030,14 @@ window.addEventListener(
                 38
             );
 
-
         image.style.transform =
-            `scale(1.04)
-             translateY(${movement}px)`;
+            `scale(1.04) translateY(${movement}px)`;
 
     },
     {
         passive: true
     }
 );
-
-
-
-/* =====================================================
-   CERTIFICATE FULLSCREEN VIEW
-====================================================== */
-
-document
-    .querySelectorAll(
-        ".certificate-slot img"
-    )
-    .forEach(image => {
-
-        image.addEventListener(
-            "click",
-            () => {
-
-                if (!image.src) {
-                    return;
-                }
-
-
-                const overlay =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                overlay.style.cssText = `
-
-                    position:fixed;
-                    inset:0;
-                    background:rgba(0,0,0,.94);
-                    z-index:99990;
-
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-
-                    padding:25px;
-
-                    cursor:zoom-out;
-
-                `;
-
-
-                const enlarged =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                enlarged.src =
-                    image.src;
-
-
-                enlarged.alt =
-                    image.alt;
-
-
-                enlarged.style.cssText = `
-
-                    max-width:96%;
-                    max-height:94%;
-
-                    width:auto;
-                    height:auto;
-
-                    object-fit:contain;
-
-                `;
-
-
-                overlay.appendChild(
-                    enlarged
-                );
-
-
-                document.body
-                    .appendChild(
-                        overlay
-                    );
-
-
-                overlay.addEventListener(
-                    "click",
-                    () => {
-
-                        overlay.remove();
-
-                    }
-                );
-
-            }
-        );
-
-    });
-
-
-
-/* =====================================================
-   ESCAPE FULLSCREEN
-====================================================== */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key !== "Escape"
-        ) {
-
-            return;
-
-        }
-
-
-        const fullscreen =
-            document.querySelector(
-                'body > div[style*="z-index:99990"]'
-            );
-
-
-        if (fullscreen) {
-
-            fullscreen.remove();
-
-        }
-
-    }
-);
-
 
 
 /* =====================================================
@@ -5159,39 +5055,30 @@ document
                 image.style.display =
                     "none";
 
-
                 const parent =
                     image.parentElement;
-
 
                 if (!parent) {
                     return;
                 }
-
 
                 if (
                     parent.querySelector(
                         ".image-missing"
                     )
                 ) {
-
                     return;
-
                 }
-
 
                 const placeholder =
                     document.createElement(
                         "div"
                     );
 
-
                 placeholder.className =
                     "image-missing";
 
-
                 placeholder.innerHTML = `
-
                     <div style="
                         display:flex;
                         align-items:center;
@@ -5206,21 +5093,16 @@ document
                         letter-spacing:3px;
                         text-align:center;
                     ">
-
                         <span style="
                             font-size:22px;
                             opacity:.65;
                         ">
                             <i class="fa-regular fa-image"></i>
                         </span>
-
                         PHOTO / IMAGE<br>
                         UPLOAD SPACE
-
                     </div>
-
                 `;
-
 
                 parent.appendChild(
                     placeholder
@@ -5230,7 +5112,6 @@ document
         );
 
     });
-
 
 
 /* =====================================================
@@ -5246,7 +5127,6 @@ document
         image.decoding = "async";
 
     });
-
 
 
 /* =====================================================
