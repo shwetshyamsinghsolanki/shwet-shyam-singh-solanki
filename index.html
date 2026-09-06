@@ -1040,6 +1040,40 @@
         filter: saturate(.95);
     }
 
+
+    .home-ring {
+
+        position: absolute;
+
+        width: min(430px, 65%);
+
+        aspect-ratio: 1;
+
+        border: 1px solid rgba(255,255,255,.7);
+
+        border-radius: 50%;
+
+        left: 50%;
+        top: 50%;
+
+        transform: translate(-50%,-50%);
+
+        animation:
+            spinSlow 20s linear infinite;
+    }
+
+
+    @keyframes spinSlow {
+
+        to {
+            transform:
+                translate(-50%,-50%)
+                rotate(360deg);
+        }
+
+    }
+
+
     .scroll-indicator {
 
         position: absolute;
@@ -2490,68 +2524,36 @@
 
         /* HOME */
 
-      #home {
+        #home {
 
-    min-height: 100svh;
+            min-height: 100svh;
 
-    position: relative;
+            align-items: flex-end;
 
-    display: flex;
-
-    align-items: center;
-
-    overflow: hidden;
-
-    background: #21140e;
-}
+            padding-bottom: 40px;
+        }
 
 
-.home-visual {
+        .home-visual {
 
-    position: absolute;
+            width: 100%;
 
-    inset: 0;
+            height: 100%;
 
-    width: 100%;
-    height: 100%;
+            opacity: .44;
+        }
 
-    opacity: 1;
 
-    overflow: hidden;
+        .home-content {
 
-    background: #21140e;
+            width: 100%;
 
-    z-index: 0;
-}
-.home-visual img {
+            padding:
+                125px
+                25px
+                40px;
+        }
 
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    filter:
-        brightness(.42)
-        saturate(.72)
-        sepia(.12);
-
-    transform: scale(1.03);
-}
-.home-content {
-
-    position: relative;
-
-    z-index: 3;
-
-    width: 100%;
-
-    padding:
-        145px
-        28px
-        70px;
-
-    color: #f3eadb;
-}
 
         .home-kicker {
 
@@ -2928,72 +2930,7 @@
         }
 
     }
-    /* MOBILE IMAGE + TEXT FIX */
 
-    #about .about-photo,
-    #judo .judo-hero {
-        height: auto;
-        min-height: 0;
-    }
-
-    #about .about-photo img,
-    #judo .judo-hero img {
-        position: relative;
-        width: 100%;
-        height: auto;
-        max-height: 420px;
-        object-fit: contain;
-        display: block;
-    }
-
-    #judo .judo-hero {
-        margin-top: 45px;
-    }
-
-    #judo .judo-overlay {
-        position: relative;
-        left: auto;
-        bottom: auto;
-        padding: 18px 0 0;
-        color: #111;
-        text-shadow: none;
-    }
-
-    #judo .judo-overlay strong {
-        font-size: 13px;
-    }
-
-    #judo .judo-overlay p {
-        font-size: 11px;
-        line-height: 1.6;
-    }
-
-    .certificate-slot {
-        min-height: 220px;
-        height: auto;
-    }
-
-    .certificate-slot img {
-        width: 100%;
-        height: auto;
-        max-height: 360px;
-        object-fit: contain;
-    }
-
-    .beyond-header p,
-    .achievement-info p,
-    .interests,
-    #about .about-text p {
-        font-size: 15px;
-        line-height: 1.75;
-    }
-
-    .gallery-item img {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
 
     /* =====================================================
        SMALL PHONES
@@ -3085,81 +3022,7 @@
         }
 
     }
-/* HOME SOCIAL MEDIA */
 
-.home-social-title {
-    margin-top: 28px;
-    font-family: "Space Grotesk";
-    font-size: 9px;
-    letter-spacing: 4px;
-    color: #777;
-}
-
-.home-social-icons {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 12px;
-}
-
-.home-social-icons a {
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 15px;
-    text-decoration: none;
-    transition: transform .3s ease, opacity .3s ease;
-}
-
-/* INSTAGRAM */
-.home-social-icons a:nth-child(1) {
-    background: linear-gradient(
-        45deg,
-        #FEDA75,
-        #FA7E1E,
-        #D62976,
-        #962FBF,
-        #4F5BD5
-    );
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* YOUTUBE */
-.home-social-icons a:nth-child(2) {
-    color: #FF0000;
-}
-
-/* X */
-.home-social-icons a:nth-child(3) {
-    color: #000000;
-}
-
-/* FACEBOOK */
-.home-social-icons a:nth-child(4) {
-    color: #1877F2;
-}
-
-.home-social-icons a:hover {
-    transform: translateY(-3px);
-    opacity: .8;
-}
-        /* CREATIVE 01–05 ONLY */
-
-.gallery-item {
-    aspect-ratio: 9 / 16 !important;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain !important;
-}
     </style>
 
 </head>
@@ -3510,29 +3373,7 @@
 
         </a>
 
-<div class="home-social-title">
-    SOCIAL MEDIA
-</div>
 
-<div class="home-social-icons">
-
-    <a href="https://www.instagram.com/the_parashar_kshatriya001/" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
-
-    <a href="https://www.youtube.com/@ShwetshyamSinghSolanki" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-youtube"></i>
-    </a>
-
-    <a href="https://x.com/Shwetshyam001" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-x-twitter"></i>
-    </a>
-
-    <a href="https://www.facebook.com/shwetshyam.singhsolanki.5" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-facebook-f"></i>
-    </a>
-
-</div>
     </div>
 
 
@@ -4843,7 +4684,96 @@
 
 
 <!-- =====================================================
-loader.classList.add
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* =====================================================
+   PAGE LOADER
+====================================================== */
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        const loader =
+            document.getElementById("loader");
+
+        loader.classList.add("hide");
+
+        document.body.classList.remove("loading");
+
+    }, 1800);
+
+});
+
+
+
+/* =====================================================
+   CUSTOM CURSOR
+====================================================== */
+
+const cursor =
+    document.querySelector(".cursor");
+
+
+if (cursor) {
+
+    document.addEventListener("mousemove", (event) => {
+
+        cursor.style.left =
+            event.clientX + "px";
+
+        cursor.style.top =
+            event.clientY + "px";
+
+    });
+
+
+    document
+        .querySelectorAll("a, button, .certificate-slot img")
+        .forEach(element => {
+
+            element.addEventListener(
+                "mouseenter",
+                () => {
+                    cursor.classList.add("big");
+                }
+            );
+
+
+            element.addEventListener(
+                "mouseleave",
+                () => {
+                    cursor.classList.remove("big");
+                }
+            );
+
+        });
+
+}
+
+
+
+/* =====================================================
+   SCROLL REVEAL
+====================================================== */
+
+const revealObserver =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                    revealObserver
                         .unobserve(entry.target);
 
                 }
@@ -5087,7 +5017,96 @@ window.addEventListener(
    CERTIFICATE FULLSCREEN VIEW
 ====================================================== */
 
+document
+    .querySelectorAll(
+        ".certificate-slot img"
+    )
+    .forEach(image => {
 
+        image.addEventListener(
+            "click",
+            () => {
+
+                if (!image.src) {
+                    return;
+                }
+
+
+                const overlay =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                overlay.style.cssText = `
+
+                    position:fixed;
+                    inset:0;
+                    background:rgba(0,0,0,.94);
+                    z-index:99990;
+
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+
+                    padding:25px;
+
+                    cursor:zoom-out;
+
+                `;
+
+
+                const enlarged =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                enlarged.src =
+                    image.src;
+
+
+                enlarged.alt =
+                    image.alt;
+
+
+                enlarged.style.cssText = `
+
+                    max-width:96%;
+                    max-height:94%;
+
+                    width:auto;
+                    height:auto;
+
+                    object-fit:contain;
+
+                `;
+
+
+                overlay.appendChild(
+                    enlarged
+                );
+
+
+                document.body
+                    .appendChild(
+                        overlay
+                    );
+
+
+                overlay.addEventListener(
+                    "click",
+                    () => {
+
+                        overlay.remove();
+
+                    }
+                );
+
+            }
+        );
+
+    });
 
 
 
@@ -5102,22 +5121,26 @@ document.addEventListener(
         if (
             event.key !== "Escape"
         ) {
+
             return;
+
         }
+
 
         const fullscreen =
             document.querySelector(
                 'body > div[style*="z-index:99990"]'
             );
 
+
         if (fullscreen) {
+
             fullscreen.remove();
+
         }
 
     }
 );
-
-        
 
 
 
