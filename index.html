@@ -498,37 +498,46 @@
     }
 
 
-.brand-circle {
-    margin-bottom: 14px;
+    .brand-circle {
 
-    transition:
-        transform .5s var(--ease),
-        border-color .3s ease;
-}
+        width: 50px;
+        height: 50px;
+
+        border: 1px solid rgba(255,255,255,.35);
+
+        border-radius: 50%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "Bebas Neue";
+
+        font-size: 19px;
+
+        margin-bottom: 14px;
+
+        transition:
+            transform .5s var(--ease),
+            border-color .3s ease;
+    }
 
 
-.brand-circle img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-}
+    .brand:hover .brand-circle {
+
+        transform: rotate(12deg);
+
+        border-color: var(--red-light);
+    }
 
 
-.brand:hover .brand-circle {
+    .brand h2 {
 
-    transform: rotate(12deg);
+        font-family: "Space Grotesk";
 
-    border-color: var(--red-light);
-}
-
-
-.brand h2 {
-
-    font-family: "Space Grotesk";
-
-    font-size: 14px;
+        font-size: 14px;
 
         line-height: 1.05;
 
@@ -738,9 +747,12 @@
 
         color: #707070;
     }
+
+
     /* =====================================================
-       JAI BHAWANI TOP BADGE
-    ====================================================== */
+      /* ======================================================
+   JAI BHAWANI TOP BADGE
+   ====================================================== */
 
 .jai-bhawani-badge {
     position: fixed;
@@ -779,6 +791,51 @@
     display: block;
     flex-shrink: 0;
 }
+
+        transition:
+            transform .4s var(--ease),
+            border-color .3s ease;
+    }
+
+
+    .jai-bhim-badge:hover {
+
+        transform:
+            translateX(-50%)
+            translateY(-3px);
+
+        border-color: var(--red);
+    }
+
+
+    .jai-bhim-flag {
+
+        width: 15px;
+        height: 11px;
+
+        background: var(--red);
+
+        display: inline-block;
+
+        position: relative;
+    }
+
+
+    .jai-bhim-flag::after {
+
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 2px;
+        height: 16px;
+
+        background: #222;
+    }
+
 
     /* =====================================================
        MAIN
@@ -1623,14 +1680,14 @@
 
     .gallery-item img {
 
-    width: 100%;
-    height: 100%;
+        width: 100%;
+        height: 100%;
 
-    object-fit: contain;
+        object-fit: cover;
 
-    transition:
-        transform 1s var(--ease);
-}
+        transition:
+            transform 1s var(--ease);
+    }
 
 
     .gallery-item:hover img {
@@ -2129,7 +2186,25 @@
         font-size: clamp(31px, 4vw, 57px);
 
         letter-spacing: .5px;
-  
+    }
+
+
+    .footer-jai {
+
+        margin-top: 15px;
+
+        font-family: "Oswald";
+
+        font-size: 12px;
+
+        letter-spacing: 3px;
+    }
+
+
+    /* =====================================================
+       REVEAL ANIMATIONS
+    ====================================================== */
+
     .reveal {
 
         opacity: 0;
@@ -2456,9 +2531,9 @@
     object-fit: cover;
 
     filter:
-        brightness(1)
-        saturate(.95)
-        sepia(0);
+        brightness(.42)
+        saturate(.72)
+        sepia(.12);
 
     transform: scale(1.03);
 }
@@ -2917,7 +2992,7 @@
         position: relative;
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
 
     /* =====================================================
@@ -2979,28 +3054,15 @@
             font-size: 82px;
         }
 
-.footer-jai {
 
-    font-size: 9px;
-    letter-spacing: 1.5px;
+        .footer-jai {
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-}
+            font-size: 9px;
 
-.india-flag {
-    width: 22px;
-    height: 15px;
-    display: inline-block;
-    flex-shrink: 0;
-}
+            letter-spacing: 1.5px;
+        }
 
-    } /* close SMALL PHONES */
-
-    } /* close MOBILE */
-
+    }
 
 
     /* =====================================================
@@ -3087,97 +3149,28 @@
     transform: translateY(-3px);
     opacity: .8;
 }
+        /* CREATIVE 01–05 ONLY */
 
-
-
-/* =====================================================
-   FINAL PHONE / MOBILE OVERRIDE
-   This block is intentionally LAST so it always wins.
-===================================================== */
-@media screen and (max-width: 1024px) {
-
-    html,
-    body {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow-x: hidden !important;
-    }
-
-    .sidebar {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        position: absolute !important;
-        left: -10000px !important;
-        width: 0 !important;
-        min-width: 0 !important;
-        max-width: 0 !important;
-        height: 0 !important;
-        overflow: hidden !important;
-    }
-
-    main {
-        display: block !important;
-        position: relative !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-    }
-
-    .mobile-header {
-        display: flex !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        z-index: 7000 !important;
-    }
-
-    .mobile-menu {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .page,
-    section {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-    }
-
-    #home {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 100svh !important;
-        margin: 0 !important;
-    }
-
-    .home-content {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .home-visual {
-        width: 100% !important;
-        max-width: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-    }
+.gallery-item {
+    aspect-ratio: 9 / 16 !important;
 }
 
-</style>
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+}
+    </style>
 
 </head>
 
+
 <body class="loading">
+
+
+<!-- =====================================================
+     LOADER
+====================================================== -->
 
 <div class="loader" id="loader">
 
@@ -3293,12 +3286,10 @@
 
     <div class="brand">
 
-       <div class="brand-circle">
-    <img
-        src="profile-photo.jpg"
-        alt="Shwet Shyam Singh Solanki"
-    >
-</div>
+        <div class="brand-circle">
+            SS
+        </div>
+
 
         <h2>
 
@@ -4697,21 +4688,22 @@
             <div class="contact-links">
 
 
-              <!-- EMAIL -->
+                <!-- EMAIL -->
 
-<a
-    class="contact-link"
-    href="mailto:shwetshyamsinghsolanki001@gmail.com"
-    aria-label="Email Shwet Shyam Singh Solanki"
->
-    <i class="fa-regular fa-envelope"></i>
+                <a
+                    class="contact-link"
+                    href="mailto:your-email@example.com"
+                    aria-label="Email Shwet Shyam Singh Solanki"
+                >
 
-    <span>
+                    <i class="fa-regular fa-envelope"></i>
 
-        EMAIL<br>
-        shwetshyamsinghsolanki001@gmail.com
+                    <span>
 
-    </span>
+                        EMAIL<br>
+                        your-email@example.com
+
+                    </span>
 
                 </a>
 
@@ -4834,14 +4826,7 @@
 
         <div class="footer-jai">
 
-            JAI HIND
-<svg class="india-flag" viewBox="0 0 24 16" aria-label="Indian flag">
-    <rect width="24" height="16" fill="#fff"/>
-    <rect width="24" height="5.33" fill="#FF9933"/>
-    <rect y="10.67" width="24" height="5.33" fill="#138808"/>
-    <circle cx="12" cy="8" r="2.15" fill="none" stroke="#000080" stroke-width=".45"/>
-    <circle cx="12" cy="8" r=".45" fill="#000080"/>
-</svg>
+            JAI HIND 🇮🇳
 
         </div>
 
@@ -4857,48 +4842,11 @@
 
 
 
-<script>
+<!-- =====================================================
+loader.classList.add
+                        .unobserve(entry.target);
 
-/* =====================================================
-   LOADER
-====================================================== */
-
-const loader = document.getElementById("loader");
-
-window.addEventListener(
-    "load",
-    () => {
-
-        setTimeout(() => {
-
-            if (loader) {
-                loader.classList.add("hide");
-            }
-
-            document.body.classList.remove("loading");
-
-        }, 1800);
-
-    }
-);
-
-
-/* =====================================================
-   REVEAL ANIMATIONS
-====================================================== */
-
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (!entry.isIntersecting) {
-                    return;
                 }
-
-                entry.target.classList.add("visible");
-                revealObserver.unobserve(entry.target);
 
             });
 
@@ -4920,6 +4868,7 @@ document
     });
 
 
+
 /* =====================================================
    ACTIVE DESKTOP NAV
 ====================================================== */
@@ -4927,17 +4876,21 @@ document
 const sections =
     document.querySelectorAll("section[id]");
 
+
 const navLinks =
     document.querySelectorAll(".nav a");
+
 
 function updateActiveNavigation() {
 
     let currentSection = "home";
 
+
     sections.forEach(section => {
 
         const position =
             section.getBoundingClientRect().top;
+
 
         if (
             position <=
@@ -4951,9 +4904,11 @@ function updateActiveNavigation() {
 
     });
 
+
     navLinks.forEach(link => {
 
         link.classList.remove("active");
+
 
         if (
             link.getAttribute("href") ===
@@ -4968,6 +4923,7 @@ function updateActiveNavigation() {
 
 }
 
+
 window.addEventListener(
     "scroll",
     updateActiveNavigation,
@@ -4976,7 +4932,9 @@ window.addEventListener(
     }
 );
 
+
 updateActiveNavigation();
+
 
 
 /* =====================================================
@@ -4986,96 +4944,98 @@ updateActiveNavigation();
 const menuButton =
     document.getElementById("menuBtn");
 
+
 const mobileMenu =
     document.getElementById("mobileMenu");
 
-if (menuButton && mobileMenu) {
 
-    menuButton.addEventListener(
-        "click",
-        () => {
+menuButton.addEventListener(
+    "click",
+    () => {
 
-            const isOpen =
-                mobileMenu.classList.toggle("open");
+        const isOpen =
+            mobileMenu.classList.toggle("open");
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+
+        const icon =
+            menuButton.querySelector("i");
+
+
+        if (isOpen) {
+
+            icon.classList.remove(
+                "fa-bars"
             );
 
-            const icon =
-                menuButton.querySelector("i");
+            icon.classList.add(
+                "fa-xmark"
+            );
 
-            if (!icon) {
-                return;
-            }
+        } else {
 
-            if (isOpen) {
+            icon.classList.remove(
+                "fa-xmark"
+            );
 
-                icon.classList.remove(
-                    "fa-bars"
-                );
-
-                icon.classList.add(
-                    "fa-xmark"
-                );
-
-            } else {
-
-                icon.classList.remove(
-                    "fa-xmark"
-                );
-
-                icon.classList.add(
-                    "fa-bars"
-                );
-
-            }
+            icon.classList.add(
+                "fa-bars"
+            );
 
         }
-    );
+
+    }
+);
 
 
-    document
-        .querySelectorAll(".mobile-menu a")
-        .forEach(link => {
 
-            link.addEventListener(
-                "click",
-                () => {
+/* =====================================================
+   CLOSE MOBILE MENU AFTER CLICK
+====================================================== */
 
-                    mobileMenu
-                        .classList
-                        .remove("open");
+document
+    .querySelectorAll(".mobile-menu a")
+    .forEach(link => {
 
+        link.addEventListener(
+            "click",
+            () => {
+
+                mobileMenu
+                    .classList
+                    .remove("open");
+
+
+                menuButton
+                    .setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                const icon =
                     menuButton
-                        .setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
+                        .querySelector("i");
 
-                    const icon =
-                        menuButton
-                            .querySelector("i");
 
-                    if (!icon) {
-                        return;
-                    }
+                icon.classList.remove(
+                    "fa-xmark"
+                );
 
-                    icon.classList.remove(
-                        "fa-xmark"
-                    );
+                icon.classList.add(
+                    "fa-bars"
+                );
 
-                    icon.classList.add(
-                        "fa-bars"
-                    );
+            }
+        );
 
-                }
-            );
+    });
 
-        });
-
-}
 
 
 /* =====================================================
@@ -5092,14 +5052,17 @@ window.addEventListener(
             return;
         }
 
+
         const image =
             document.querySelector(
                 ".home-visual img"
             );
 
+
         if (!image) {
             return;
         }
+
 
         const movement =
             Math.min(
@@ -5107,14 +5070,55 @@ window.addEventListener(
                 38
             );
 
+
         image.style.transform =
-            `scale(1.04) translateY(${movement}px)`;
+            `scale(1.04)
+             translateY(${movement}px)`;
 
     },
     {
         passive: true
     }
 );
+
+
+
+/* =====================================================
+   CERTIFICATE FULLSCREEN VIEW
+====================================================== */
+
+
+
+
+
+/* =====================================================
+   ESCAPE FULLSCREEN
+====================================================== */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key !== "Escape"
+        ) {
+            return;
+        }
+
+        const fullscreen =
+            document.querySelector(
+                'body > div[style*="z-index:99990"]'
+            );
+
+        if (fullscreen) {
+            fullscreen.remove();
+        }
+
+    }
+);
+
+        
+
 
 
 /* =====================================================
@@ -5132,30 +5136,39 @@ document
                 image.style.display =
                     "none";
 
+
                 const parent =
                     image.parentElement;
+
 
                 if (!parent) {
                     return;
                 }
+
 
                 if (
                     parent.querySelector(
                         ".image-missing"
                     )
                 ) {
+
                     return;
+
                 }
+
 
                 const placeholder =
                     document.createElement(
                         "div"
                     );
 
+
                 placeholder.className =
                     "image-missing";
 
+
                 placeholder.innerHTML = `
+
                     <div style="
                         display:flex;
                         align-items:center;
@@ -5170,16 +5183,21 @@ document
                         letter-spacing:3px;
                         text-align:center;
                     ">
+
                         <span style="
                             font-size:22px;
                             opacity:.65;
                         ">
                             <i class="fa-regular fa-image"></i>
                         </span>
+
                         PHOTO / IMAGE<br>
                         UPLOAD SPACE
+
                     </div>
+
                 `;
+
 
                 parent.appendChild(
                     placeholder
@@ -5189,6 +5207,7 @@ document
         );
 
     });
+
 
 
 /* =====================================================
@@ -5204,6 +5223,7 @@ document
         image.decoding = "async";
 
     });
+
 
 
 /* =====================================================
